@@ -2,6 +2,8 @@ import "package:english_words/english_words.dart";
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
+final var word_index=[];
+//WordInfo
 class WordInfo extends StatelessWidget
 {
   var radius=10;
@@ -64,18 +66,18 @@ class WordInfo extends StatelessWidget
                                   color:Color.fromRGBO(240, 206, 235, 1)),
                             ),
                             //第一阶段
-                            //第二阶段
+                            //加入生词本
                             Container(
                               margin:EdgeInsets.only(right: 40),
                               height: 90,
                               child: RaisedButton(onPressed: (){},shape: CircleBorder(),color:Color.fromRGBO(249, 255, 214, 1.00)),),
-                            //第二阶段
-                            //第三阶段
+                            //加入生词本
+                            //通过
                             Container(
                               margin:EdgeInsets.only(),
                               height: 90,
                               child: RaisedButton(onPressed: (){},shape: CircleBorder(),color:Color.fromRGBO(178, 255, 169, 1)),),
-                            //第三阶段
+                            //通过
                           ],
                         ),
                         width:350,
@@ -92,6 +94,7 @@ class WordInfo extends StatelessWidget
     throw UnimplementedError();
   }
 }
+//WordInfo
 void main()
 {
   runApp(
