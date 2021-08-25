@@ -95,11 +95,34 @@ class WordInfo extends StatelessWidget
   }
 }
 //WordInfo
+class mianPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+    home:Scaffold(
+    body:Center(
+    child:
+   Container(
+    child:RaisedButton(onPressed: (){
+      Navigator.push(context,new MaterialPageRoute(builder: (context)=>new WordInfo()));
+}),
+    width:180,
+    height: 180,
+
+    )
+    )
+    )
+    );
+    throw UnimplementedError();
+  }
+
+}
 void main()
 {
   runApp(
       MaterialApp(
-          home:WordInfo()
+          home:mianPage()
       )
   );
   if (Platform.isAndroid) {
