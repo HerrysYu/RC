@@ -1,16 +1,5 @@
-# fluter_practice
+#HY_WORD
 
-A new Flutter application.
+本应用程序为HerrysYu自行开发，开源且免费的背单词软件，词库为HerrysYu个人的单词笔记本整理而得到/捂脸，力求解释例句的部分的严谨准确，想一起开发的小伙伴们可以随时加入。
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+我的邮箱：
