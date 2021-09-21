@@ -2,8 +2,26 @@ import "package:english_words/english_words.dart";
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+class Return_word{
+  var word_index = [
+    'moth',
+    'mothball',
+    'rugby',
+    'rough',
+    'roll couster',
+    'ramantic',
+    'rumour',
+    'sensitive',
+    'seller',
+    'strain',
+    'strait'
+  ];
+
+}
 class WordInfo extends StatelessWidget
 {
+  var return_word=Return_word().word_index[1];
   var radius=10;
   final Color color_background=Color.fromRGBO(231, 244, 254, 1);
   @override
@@ -27,7 +45,7 @@ class WordInfo extends StatelessWidget
                       height:120,
                       child: Container(
                           margin:EdgeInsets.only(top:30,left: 0),
-                          child:Text("empty",
+                          child:Text(return_word,
                               textAlign: TextAlign.center,
                               textScaleFactor:2,
                               style:new TextStyle(
