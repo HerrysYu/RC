@@ -50,25 +50,23 @@ class WordInfo extends StatelessWidget {
                                 blurRadius: 10,
                                 spreadRadius: 2.0)
                           ])), //word,
-                  SingleChildScrollView(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      child: Center(child: Message()),
-                      margin: EdgeInsets.only(top: 45),
-                      width: 350,
-                      height: 460,
-                      decoration: new BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(50)),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(5.0, 5.0),
-                                blurRadius: 10,
-                                spreadRadius: 2.0)
-                          ]),
-                    ),
-                  ), //
+                  Container(
+                    child: ListView(children: [Center(child: Message())]),
+                    margin: EdgeInsets.only(top: 45),
+                    width: 350,
+                    height: 460,
+                    decoration: new BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(50)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 10,
+                              spreadRadius: 2.0)
+                        ]),
+                  ),
+                  //
                   Container(
                       margin: EdgeInsets.only(top: 40),
                       child: Row(
