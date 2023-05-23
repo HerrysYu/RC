@@ -78,7 +78,8 @@ class WordInfo extends StatelessWidget {
                             decoration: new BoxDecoration(),
                             child: ElevatedButton(
                               onPressed: () {
-                                SaveWord(Arguments.message);
+                                SaveWord(
+                                    Arguments.CurrentWord); //SAVE WORD/SENTENCE
                               },
                               style: TextButton.styleFrom(
                                   shape: CircleBorder(),
@@ -95,7 +96,9 @@ class WordInfo extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () {
                                 print("pressed");
-                                channel.sink.add(Arguments.message);
+                                channel.sink
+                                    .add(Arguments.message); //SEND MESSAGE
+                                Arguments.CurrentWord = tec.text.toString();
                               },
                               style: TextButton.styleFrom(
                                   backgroundColor:
@@ -113,8 +116,8 @@ class WordInfo extends StatelessWidget {
                                 tec.clear();
                               },
                               style: TextButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromRGBO(178, 255, 169, 1),
+                                  backgroundColor: Color.fromRGBO(
+                                      178, 255, 169, 1), //CLEAR THE TEXTBOX
                                   shape: CircleBorder()),
                               child: null,
                             ),
