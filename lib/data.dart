@@ -11,54 +11,36 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'main.dart';
-void SaveWord(String word) async{
-  // Avoid errors caused by flutter upgrade.
-// Importing 'package:flutter/widgets.dart' is required.
-  WidgetsFlutterBinding.ensureInitialized();
-// Open the database and store the reference.
-  final database = openDatabase(
-    // Set the path to the database. Note: Using the `join` function from the
-    // `path` package is best practice to ensure the path is correctly
-    // constructed for each platform.
-      join(await getDatabasesPath(), 'doggie_database.db'),
-      onCreate: (db,version){
-        return db.execute('CREATE TABLE words(id INTEGER PRIMARY KEY,wordTEXT)',);
-      },
-      version:1
-  );
-  Future<void> insertWord(Word word) async {
-    // Get a reference to the database.
-    final db = await database;
 
-    // Insert the Dog into the correct table. You might also specify the
-    // `conflictAlgorithm` to use in case the same dog is inserted twice.
-    //
-    // In this case, replace any previous data.
-    await db.insert(
-      'words',
-      word.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-   var Inword=Word(word: word);
-  insertWord(Inword);
-}
-class Word{
+void SaveWord(String word) async {}
 
-  final String word;
-  const Word({
-
-    required this.word,
+class SqlHelper {
+  final String db_path;
+  SqlHelper({
+    //build up the instance
+    required this.db_path,
   });
-  Map<String, dynamic> toMap() {
-    return {
-
-      'word': word,
-    };
-  }
-  @override
-  String toString() {
-    return 'Dog{ word: $word}';
+  Opericate(String KeyWord, String Content) async {
+    if (databaseExists(db_path) == true) {
+//do something
+      print('database exists');
+      Database database = await openDatabase(db_path);
+      var value = {'keyword': KeyWord, 'content': Content};
+      database.insert('words', value); //insert the word
+      database.close(); //close the database
+    } else {
+//create the table
+      String path = join(await getDatabasesPath(), db_path);
+      Database database = await openDatabase(path, version: 1,
+          onCreate: (Database db, int version) {
+        db.execute(
+            'CREATE TABLE Words (keyword TEXT, content TEXT)'); //create the database
+        var value = {'keyword': KeyWord, 'content': Content};
+        db.insert('words', value); //insert words
+        db.close(); //close the database
+        print("word" + KeyWord.toString());
+        print(Content);
+      });
+    }
   }
 }
-// Define a function that inserts dogs into the database
