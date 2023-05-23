@@ -64,24 +64,3 @@ class _MyButtonState extends State<MyButton>{
   }
 
 }
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title:'聊天软件',
-      home:Scaffold(
-        appBar:AppBar(
-          title: Text("QChat"),
-        ),
-        body:Column(
-          children: [
-            MyTextField(),
-            Message(),
-            MyButton()
-          ],
-        ),
-          backgroundColor: Colors.white
-      )
-    );
-  }
-}
