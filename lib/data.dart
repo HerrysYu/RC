@@ -12,8 +12,6 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'main.dart';
 
-void SaveWord(String word) async {}
-
 class SqlHelper {
   final String db_path;
   SqlHelper({
