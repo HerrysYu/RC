@@ -6,4 +6,6 @@ class Arguments {
   static int counter = 0;
   static String SeverAddress = "ws://192.168.1.9:8765";
   static String? CurrentWord;
+  static String database_path = 'save.db';
+  static bool isDatasetExits = false;
 }

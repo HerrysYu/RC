@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:fluter_practice/data.dart';
 import 'package:fluter_practice/structure.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,8 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+
+final sqlHelper = SqlHelper(db_path: Arguments.database_path.toString());
 
 class WordInfo extends StatelessWidget {
   var radius = 10;
@@ -78,8 +82,8 @@ class WordInfo extends StatelessWidget {
                             decoration: new BoxDecoration(),
                             child: ElevatedButton(
                               onPressed: () {
-                                SaveWord(
-                                    Arguments.CurrentWord); //SAVE WORD/SENTENCE
+                                //SAVE WORD/SENTENCE
+                                sqlHelper.Opericate(tec.text);
                               },
                               style: TextButton.styleFrom(
                                   shape: CircleBorder(),
@@ -138,5 +142,6 @@ class WordInfo extends StatelessWidget {
 }
 
 void main() {
+  DBinitialize();
   runApp(MaterialApp(home: WordInfo()));
 }
