@@ -43,6 +43,10 @@ class SqlHelper {
     );
     print("get");
     final maps = await database.query('words');
-    print(maps.toList());
+    var list = maps.toList();
+    var new_list = List.generate(list.length, (index) {
+      list[index]['keyword'];
+    });
+    print(new_list);
   }
 }
