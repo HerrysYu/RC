@@ -1,11 +1,6 @@
-import 'dart:html';
-
 import 'package:fluter_practice/data.dart';
 import 'package:fluter_practice/structure.dart';
 import 'package:flutter/material.dart';
-import 'dart:io';
-import 'package:flutter/services.dart';
-
 import 'MessageSend.dart';
 import 'argument.dart';
 import 'dart:async';
@@ -82,8 +77,8 @@ class WordInfo extends StatelessWidget {
                             decoration: new BoxDecoration(),
                             child: ElevatedButton(
                               onPressed: () {
-                                //SAVE WORD/SENTENCE
                                 sqlHelper.Opericate(tec.text);
+                                //sqlHelper.ReadOut();
                               },
                               style: TextButton.styleFrom(
                                   shape: CircleBorder(),
@@ -117,7 +112,8 @@ class WordInfo extends StatelessWidget {
                             height: 90,
                             child: ElevatedButton(
                               onPressed: () {
-                                tec.clear();
+                                //tec.clear();
+                                sqlHelper.ReadOut();
                               },
                               style: TextButton.styleFrom(
                                   backgroundColor: Color.fromRGBO(
@@ -142,6 +138,5 @@ class WordInfo extends StatelessWidget {
 }
 
 void main() {
-  DBinitialize();
   runApp(MaterialApp(home: WordInfo()));
 }
