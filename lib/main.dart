@@ -76,9 +76,9 @@ class WordInfo extends StatelessWidget {
                             height: 90,
                             decoration: new BoxDecoration(),
                             child: ElevatedButton(
-                              onPressed: () {
-                                sqlHelper.Opericate(tec.text);
-                                //sqlHelper.ReadOut();
+                              onPressed: () async {
+                                sqlHelper.SaveWord(tec.text);
+                                print(await sqlHelper.ReadOut());
                               },
                               style: TextButton.styleFrom(
                                   shape: CircleBorder(),
@@ -111,9 +111,8 @@ class WordInfo extends StatelessWidget {
                           Container(
                             height: 90,
                             child: ElevatedButton(
-                              onPressed: () {
-                                //tec.clear();
-                                sqlHelper.ReadOut();
+                              onPressed: () async {
+                                tec.clear();
                               },
                               style: TextButton.styleFrom(
                                   backgroundColor: Color.fromRGBO(

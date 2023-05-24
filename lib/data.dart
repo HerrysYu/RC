@@ -18,7 +18,7 @@ class SqlHelper {
     //build up the instance
     required this.db_path,
   });
-  Opericate(String KeyWord) async {
+  SaveWord(String KeyWord) async {
     String path = join(await getDatabasesPath(), db_path);
     final database = await openDatabase(
       path,
@@ -27,9 +27,39 @@ class SqlHelper {
         return database.execute('CREATE TABLE Words (keyword TEXT)');
       },
     );
-    var value = {'keyword': KeyWord};
-    database.insert('words', value); //insert the word
-    database.close(); //close the database
+    List list = await ReadOut();
+    print(KeyWord);
+    if (list.every((element) => element.toString() != KeyWord.toString()) ==
+        true) {
+      print(list.every((element) => element != KeyWord));
+      var value = {'keyword': KeyWord};
+      database.insert('words', value); //insert the word
+      database.close();
+    } else {
+      print('element has already exists');
+    } //close the database
+  }
+
+  RemoveWord(String KeyWord) async {
+    String path = join(await getDatabasesPath(), db_path);
+    final database = await openDatabase(
+      path,
+      version: 1,
+      onCreate: (database, version) {
+        return database.execute('CREATE TABLE Words (keyword TEXT)');
+      },
+    );
+    List list = await ReadOut();
+    print(KeyWord);
+    if (list.every((element) => element.toString() != KeyWord.toString()) ==
+        true) {
+      print(list.every((element) => element != KeyWord));
+      var value = {'keyword': KeyWord};
+      database.insert('words', value); //insert the word
+      database.close();
+    } else {
+      print('element has already exists');
+    } //close the database
   }
 
   ReadOut() async {
@@ -41,12 +71,31 @@ class SqlHelper {
         return database.execute('CREATE TABLE Words (keyword TEXT)');
       },
     );
-    print("get");
-    final maps = await database.query('words');
-    var list = maps.toList();
-    var new_list = List.generate(list.length, (index) {
-      list[index]['keyword'];
+    final List<Map<String, dynamic>> maps = await database.query('words');
+    return List.generate(maps.length, (index) {
+      return Kw(keyword: maps[index]['keyword']);
     });
-    print(new_list);
+  }
+}
+
+class Kw {
+  final String keyword;
+  const Kw({
+    required this.keyword,
+  });
+
+  // Convert a Dog into a Map. The keys must correspond to the names of the
+  // columns in the database.
+  Map<String, dynamic> toMap() {
+    return {
+      'keyword': keyword,
+    };
+  }
+
+  // Implement toString to make it easier to see information about
+  // each dog when using the print statement.
+  @override
+  String toString() {
+    return '$keyword';
   }
 }
