@@ -8,7 +8,8 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
+import 'Voabulary.dart';
+import 'package:provider/provider.dart';
 final sqlHelper = SqlHelper(db_path: Arguments.database_path.toString());
 
 class WordInfo extends StatelessWidget {
@@ -75,16 +76,27 @@ class WordInfo extends StatelessWidget {
                           Container(
                             height: 90,
                             decoration: new BoxDecoration(),
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                sqlHelper.SaveWord(tec.text);
-                                print(await sqlHelper.ReadOut());
-                              },
-                              style: TextButton.styleFrom(
-                                  shape: CircleBorder(),
-                                  backgroundColor:
-                                      Color.fromRGBO(240, 206, 235, 1)),
-                              child: null,
+                            child: Hero(
+                              tag:'TP',
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  sqlHelper.SaveWord(tec.text);
+                                  print(await sqlHelper.ReadOut());
+                                },
+                                onLongPress: ()async{
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext){
+                                    return ChangeNotifierProvider(
+      create: (_) => VocabularyState(),
+     child: Scaffold(body: Hero(tag:'TP',child: Center(child: VList(),)),),
+);;
+                                  }));
+                                },
+                                style: TextButton.styleFrom(
+                                    shape: CircleBorder(),
+                                    backgroundColor:
+                                        Color.fromRGBO(240, 206, 235, 1)),
+                                child: null,
+                              ),
                             ),
                           ),
                           //第一阶段
