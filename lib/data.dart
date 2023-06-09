@@ -12,12 +12,26 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'main.dart';
 
+List Klist = [];
+
 class SqlHelper {
   final String db_path;
   SqlHelper({
     //build up the instance
     required this.db_path,
   });
+  ClearDataBase() async {
+    String path = join(await getDatabasesPath(), db_path);
+    final database = await openDatabase(
+      path,
+      version: 1,
+      onCreate: (database, version) {
+        return database.execute('CREATE TABLE Words (keyword TEXT)');
+      },
+    );
+    database.delete('words');
+  }
+
   SaveWord(String KeyWord) async {
     String path = join(await getDatabasesPath(), db_path);
     final database = await openDatabase(
@@ -27,16 +41,20 @@ class SqlHelper {
         return database.execute('CREATE TABLE Words (keyword TEXT)');
       },
     );
-    List list = await ReadOut();
+    List list = Arguments.VocabularyList;
     print(KeyWord);
     if (list.every((element) => element.toString() != KeyWord.toString()) ==
         true) {
       print(list.every((element) => element != KeyWord));
-      var value = {'keyword': KeyWord};
-      database.insert('words', value); //insert the word
-      database.close();
+      Kw kw = new Kw(keyword: KeyWord);
+      database.insert('words', kw.toMap()); //insert the word
+      print("current content in the vocabulary");
+      print(await ReadOut());
+      Arguments.VocabularyList = await ReadOut();
+      //database.close();
     } else {
       print('element has already exists');
+      //database.close();
     } //close the database
   }
 
@@ -56,13 +74,13 @@ class SqlHelper {
       print(list.every((element) => element != KeyWord));
       var value = {'keyword': KeyWord};
       database.insert('words', value); //insert the word
-      database.close();
+      //database.close();
     } else {
       print('element has already exists');
     } //close the database
   }
 
-  ReadOut() async {
+  Future<List<Kw>> ReadOut() async {
     String path = join(await getDatabasesPath(), db_path);
     final database = await openDatabase(
       path,
@@ -72,8 +90,8 @@ class SqlHelper {
       },
     );
     final List<Map<String, dynamic>> maps = await database.query('words');
-    return List.generate(maps.length, (index) {
-      return Kw(keyword: maps[index]['keyword']);
+    return List.generate(maps.length, (i) {
+      return Kw(keyword: maps[i]['keyword']);
     });
   }
 }
@@ -83,8 +101,9 @@ class Kw {
   const Kw({
     required this.keyword,
   });
-
-  // Convert a Dog into a Map. The keys must correspond to the names of the
+  factory Kw.fromMap(Map<String, dynamic> json) => new Kw(
+      keyword: json[
+          'json']); // Convert a Dog into a Map. The keys must correspond to the names of the
   // columns in the database.
   Map<String, dynamic> toMap() {
     return {

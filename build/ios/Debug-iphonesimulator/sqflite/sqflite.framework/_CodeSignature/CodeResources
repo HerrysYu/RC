@@ -18,19 +18,19 @@
 		</data>
 		<key>Headers/SqfliteOperation.h</key>
 		<data>
-		UtW3GOBeXEW5s2w3h3qZBrV/smQ=
+		1qs2VByExmwhuAfqFnVLlT9i6fc=
 		</data>
 		<key>Headers/SqflitePlugin.h</key>
 		<data>
-		sJ7X/5qy1I/xWzYWbIH4QQlg5yA=
+		9gOu5wEOiDirJMUPhYF4HZPl+Kk=
 		</data>
 		<key>Headers/sqflite-umbrella.h</key>
 		<data>
-		0ZAjEchHuptdKCLS4EOvUKhkIIY=
+		E3TVHS7RDLLAzmYt3bdV88l6txQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		u/pI1TjeVphRd/EVbSu5CD/jrZI=
+		KlvQ9KcXwiKY+a5QcyDzQp7+4g0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -41,6 +41,10 @@
 	<dict>
 		<key>Headers/SqfliteCursor.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			1VfHOrPgffaqn8JEKrOhk6rgPKE=
+			</data>
 			<key>hash2</key>
 			<data>
 			mG1Yvnp0qIvnF4VCIygh3mQKBibOVuxB1DyZsGoN4is=
@@ -48,6 +52,10 @@
 		</dict>
 		<key>Headers/SqfliteDatabase.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			zsTTAloFlEcTIE9lsLs7YH3mft8=
+			</data>
 			<key>hash2</key>
 			<data>
 			3kOKoA86HUGYZZRrMFzp7zMUMD/dy6p48Hdq6/PHp4w=
@@ -55,6 +63,10 @@
 		</dict>
 		<key>Headers/SqfliteImport.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			5EnSTmDeeuQ5qy+JW9INmT6Prc0=
+			</data>
 			<key>hash2</key>
 			<data>
 			YhqPybsZhbZmSiHSVkDiRhEMWbs+8kn1GXXHPaYDI3w=
@@ -62,27 +74,43 @@
 		</dict>
 		<key>Headers/SqfliteOperation.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			1qs2VByExmwhuAfqFnVLlT9i6fc=
+			</data>
 			<key>hash2</key>
 			<data>
-			IM02aeCQhobAX0xcbqDY2W0zuBJ6Ru77D/eIDaZsrNs=
+			GquXwXlgcfo8iV2Y0H0x1BHvwtKSXPRlIg13rUkmhvM=
 			</data>
 		</dict>
 		<key>Headers/SqflitePlugin.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			9gOu5wEOiDirJMUPhYF4HZPl+Kk=
+			</data>
 			<key>hash2</key>
 			<data>
-			SvlNMUtndz+TOE9eWj4+mgG8hHNLoS+CKmeBUKFV7cA=
+			0jDgwcRQv/8l8mRTtMnmX2B0mBs0wFqfo9rFgGWIqoM=
 			</data>
 		</dict>
 		<key>Headers/sqflite-umbrella.h</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			E3TVHS7RDLLAzmYt3bdV88l6txQ=
+			</data>
 			<key>hash2</key>
 			<data>
-			6tUnqMjmSvmu7RM3OORjcQO4g7An+vS62vOVpiC11Ag=
+			zZR8/IbDBVrsS/uLyFFstPrhnSynrsqpqb13gPgNF6E=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			F7MvTB7XfsuHpBENN/M7Y2zXO3o=
+			</data>
 			<key>hash2</key>
 			<data>
 			eEumEfhgIg+GvWnOVvd3J3xG3anuAKsIwoWGcWxjN28=
