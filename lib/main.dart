@@ -77,31 +77,31 @@ class WordInfo extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       //Red Button 红色按钮 ########################################################
-                      Hero(
-                        tag: 'transform',
-                        child: Container(
-                          height: 90 * height,
-                          decoration: new BoxDecoration(),
-                          child: ElevatedButton(
-                            onPressed: () async {
-                              sqlHelper.SaveWord(tec.text);
-                              //sqlHelper.ClearDataBase(); //######################### delete the table for debug propose
-                            },
-                            onLongPress: () async {
-                              await sqlHelper.ReadOut();
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => vocabulary()));
-                            },
-                            style: TextButton.styleFrom(
-                                shape: CircleBorder(),
-                                backgroundColor:
-                                    Color.fromRGBO(240, 206, 235, 1)),
-                            child: null,
-                          ),
+                      Container(
+                        height: 90 * height,
+                        decoration: new BoxDecoration(),
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            sqlHelper.SaveWord(tec.text);
+                            //sqlHelper
+                            //.ClearDataBase(); //######################### delete the table for debug propose
+                          },
+                          onLongPress: () async {
+                            Arguments.VocabularyList =
+                                await sqlHelper.ReadOut();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => vocabulary()));
+                          },
+                          style: TextButton.styleFrom(
+                              shape: CircleBorder(),
+                              backgroundColor:
+                                  Color.fromRGBO(240, 206, 235, 1)),
+                          child: null,
                         ),
                       ),
+
                       //第一阶段
                       //第二阶段
                       Container(
@@ -129,6 +129,9 @@ class WordInfo extends StatelessWidget {
                           onPressed: () async {
                             tec.clear();
                           },
+                          onLongPress: (() async {
+                            sqlHelper.ClearDataBase();
+                          }),
                           style: TextButton.styleFrom(
                               backgroundColor: Color.fromRGBO(
                                   178, 255, 169, 1), //CLEAR THE TEXTBOX
