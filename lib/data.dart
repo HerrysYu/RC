@@ -33,29 +33,33 @@ class SqlHelper {
   }
 
   SaveWord(String KeyWord) async {
-    String path = join(await getDatabasesPath(), db_path);
-    final database = await openDatabase(
-      path,
-      version: 1,
-      onCreate: (database, version) {
-        return database.execute('CREATE TABLE Words (keyword TEXT)');
-      },
-    );
-    List list = Arguments.VocabularyList;
-    print(KeyWord);
-    if (list.every((element) => element.toString() != KeyWord.toString()) ==
-        true) {
-      print(list.every((element) => element != KeyWord));
-      Kw kw = new Kw(keyword: KeyWord);
-      database.insert('words', kw.toMap()); //insert the word
-      print("current content in the vocabulary");
-      print(await ReadOut());
-      Arguments.VocabularyList = await ReadOut();
-      //database.close();
+    if (KeyWord == "") {
+      print("Box is empty");
     } else {
-      print('element has already exists');
-      //database.close();
-    } //close the database
+      String path = join(await getDatabasesPath(), db_path);
+      final database = await openDatabase(
+        path,
+        version: 1,
+        onCreate: (database, version) {
+          return database.execute('CREATE TABLE Words (keyword TEXT)');
+        },
+      );
+      List list = Arguments.VocabularyList;
+      print(KeyWord);
+      if (list.every((element) => element.toString() != KeyWord.toString()) ==
+          true) {
+        print(list.every((element) => element != KeyWord));
+        Kw kw = new Kw(keyword: KeyWord);
+        database.insert('words', kw.toMap()); //insert the word
+        print("current content in the vocabulary");
+        print(await ReadOut());
+        Arguments.VocabularyList = await ReadOut();
+        //database.close();
+      } else {
+        print('element has already exists');
+        //database.close();
+      } //close the database
+    }
   }
 
   RemoveWord(String KeyWord) async {
@@ -70,17 +74,7 @@ class SqlHelper {
           return database.execute('CREATE TABLE Words (keyword TEXT)');
         },
       );
-      List list = await ReadOut();
-      print(KeyWord);
-      if (list.every((element) => element.toString() != KeyWord.toString()) ==
-          true) {
-        print(list.every((element) => element != KeyWord));
-        var value = {'keyword': KeyWord};
-        database.insert('words', value); //insert the word
-        //database.close();
-      } else {
-        print('element has already exists');
-      } //close the database
+      database.delete('words', where: 'keyword=?', whereArgs: [KeyWord]);
     }
   }
 

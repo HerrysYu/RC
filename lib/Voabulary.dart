@@ -33,14 +33,35 @@ class VList extends StatelessWidget {
         for (var key in list)
           Container(
             width: MediaQuery.of(context).size.width,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.grey,
-                onPrimary: Colors.white,
-                shadowColor: Colors.white30,
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey))),
+              alignment: Alignment.topLeft,
+              //margin: EdgeInsets.only(left: 30, bottom: 5, top: 20),
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                    padding: EdgeInsets.only(left: 30, bottom: 20, top: 20),
+                    primary: Colors.white,
+                    elevation: 0,
+                    shadowColor: Colors.white,
+                    side: BorderSide(color: Colors.white)),
+                child: Text(
+                  key.toString(),
+                  style: TextStyle(color: Colors.black, fontSize: 25),
+                  textAlign: TextAlign.left,
+                ),
+                onPressed: (() {
+                  //Search(key);
+                  print("$key tapped");
+                  Navigator.pop(context);
+                  tec.text = key.toString();
+                }),
+                onLongPress: () {
+                  print("$key LongPressed");
+                  sqlHelper.RemoveWord(key.toString());
+                  state.ListRefresh();
+                },
               ),
-              child: Text(key.toString()),
-              onPressed: () {},
             ),
           )
       ],
@@ -57,23 +78,17 @@ class vocabulary extends StatelessWidget {
     // TODO: implement build
     return ChangeNotifierProvider(
       create: (context) => VocabularyState(),
-      child: MaterialApp(
-        key: _key,
-        home: Scaffold(
-          body: Center(
-            child: CustomScrollView(slivers: [
-              Bar(),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ClipRRect(
-                    child: VList(),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                ),
-              )
-            ]),
-          ),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: CustomScrollView(slivers: [
+            Bar(),
+            SliverToBoxAdapter(
+              child: Container(
+                child: VList(),
+              ),
+            )
+          ]),
         ),
       ),
     );
@@ -99,10 +114,17 @@ class Bar extends StatelessWidget {
     GlobalKey _key = GlobalKey();
     var State = context.watch<VocabularyState>();
     return SliverAppBar(
+      expandedHeight: 150,
       key: _key,
-      flexibleSpace: const FlexibleSpaceBar(
-        title: Text('AppBar'),
-      ),
+      backgroundColor: Color.fromARGB(255, 248, 240, 243),
+      flexibleSpace: FlexibleSpaceBar(
+          title: Container(
+        margin: EdgeInsets.all(32),
+        child: Text(
+          "AppBar",
+          style: TextStyle(color: Colors.black),
+        ),
+      )),
       stretch: true,
       //onStretchTrigger: State.ListRefresh(),
     );

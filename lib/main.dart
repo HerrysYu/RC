@@ -84,7 +84,7 @@ class WordInfo extends StatelessWidget {
                           onPressed: () async {
                             sqlHelper.SaveWord(tec.text);
                             //sqlHelper
-                            //.ClearDataBase(); //######################### delete the table for debug propose
+                            //.ClearDataBase(); //######################### delete the table for debug purpose
                           },
                           onLongPress: () async {
                             Arguments.VocabularyList =
@@ -154,6 +154,17 @@ class WordInfo extends StatelessWidget {
   }
 }
 
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      home: WordInfo(),
+    );
+    throw UnimplementedError();
+  }
+}
+
 void main() {
-  runApp(MaterialApp(home: WordInfo()));
+  runApp(App());
 }
