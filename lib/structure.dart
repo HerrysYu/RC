@@ -3,9 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'argument.dart';
 import 'MessageSend.dart';
-final tec=TextEditingController();
+
+final tec = TextEditingController();
 void ChangeMessage() {
-  Arguments.message="a";
+  Arguments.message = "a";
 }
 
 class MyTextField extends StatefulWidget {
@@ -18,49 +19,49 @@ class MyTextField extends StatefulWidget {
   State<MyTextField> createState() => _MyTextFieldState();
 }
 
-class _MyTextFieldState extends State<MyTextField>{
+class _MyTextFieldState extends State<MyTextField> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return TextField(
-      onChanged:(String input){
-        Arguments.message=input;
-      },
-        onTap:(){
-          print('tapped');
-          setState(() {
-          });
+        onChanged: (String input) {
+          Arguments.message = input;
         },
-        style:TextStyle(color: Colors.black, fontWeight: FontWeight.w800,fontSize: 25),
+        onTap: () {
+          print('tapped');
+          setState(() {});
+        },
+        style: TextStyle(
+            color: Colors.black, fontWeight: FontWeight.w800, fontSize: 25),
         textAlign: TextAlign.center,
         decoration: InputDecoration(
-          hintText:"",
+          hintText: "",
           border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top:0,bottom:0,),
-
+          contentPadding: EdgeInsets.only(
+            top: 0,
+            bottom: 0,
+          ),
         ),
-        controller: tec
-
-    );
+        controller: tec);
   }
 }
-class MyButton extends StatefulWidget{
+
+class MyButton extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MyButtonState();
 }
-class _MyButtonState extends State<MyButton>{
+
+class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialButton(
-      onPressed:(){
-        print("pressed");
-        channel.sink.add(Arguments.message);
-      },
-      color:Colors.blue
-    );
+        onPressed: () {
+          print("pressed");
+          channel.sink.add(Arguments.message);
+        },
+        color: Colors.blue);
 
     throw UnimplementedError();
   }
-
 }

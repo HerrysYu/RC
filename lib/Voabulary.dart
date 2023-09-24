@@ -121,7 +121,7 @@ class Bar extends StatelessWidget {
           title: Container(
         margin: EdgeInsets.all(32),
         child: Text(
-          "AppBar",
+          "单词本",
           style: TextStyle(color: Colors.black),
         ),
       )),

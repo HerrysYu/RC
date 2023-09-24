@@ -30,7 +30,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		KlvQ9KcXwiKY+a5QcyDzQp7+4g0=
+		9HfutI8GyQK/zA+NE3LqNbELH6w=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -41,10 +41,6 @@
 	<dict>
 		<key>Headers/SqfliteCursor.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1VfHOrPgffaqn8JEKrOhk6rgPKE=
-			</data>
 			<key>hash2</key>
 			<data>
 			mG1Yvnp0qIvnF4VCIygh3mQKBibOVuxB1DyZsGoN4is=
@@ -52,10 +48,6 @@
 		</dict>
 		<key>Headers/SqfliteDatabase.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zsTTAloFlEcTIE9lsLs7YH3mft8=
-			</data>
 			<key>hash2</key>
 			<data>
 			3kOKoA86HUGYZZRrMFzp7zMUMD/dy6p48Hdq6/PHp4w=
@@ -63,10 +55,6 @@
 		</dict>
 		<key>Headers/SqfliteImport.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5EnSTmDeeuQ5qy+JW9INmT6Prc0=
-			</data>
 			<key>hash2</key>
 			<data>
 			YhqPybsZhbZmSiHSVkDiRhEMWbs+8kn1GXXHPaYDI3w=
@@ -74,10 +62,6 @@
 		</dict>
 		<key>Headers/SqfliteOperation.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1qs2VByExmwhuAfqFnVLlT9i6fc=
-			</data>
 			<key>hash2</key>
 			<data>
 			GquXwXlgcfo8iV2Y0H0x1BHvwtKSXPRlIg13rUkmhvM=
@@ -85,10 +69,6 @@
 		</dict>
 		<key>Headers/SqflitePlugin.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9gOu5wEOiDirJMUPhYF4HZPl+Kk=
-			</data>
 			<key>hash2</key>
 			<data>
 			0jDgwcRQv/8l8mRTtMnmX2B0mBs0wFqfo9rFgGWIqoM=
@@ -96,10 +76,6 @@
 		</dict>
 		<key>Headers/sqflite-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			E3TVHS7RDLLAzmYt3bdV88l6txQ=
-			</data>
 			<key>hash2</key>
 			<data>
 			zZR8/IbDBVrsS/uLyFFstPrhnSynrsqpqb13gPgNF6E=
@@ -107,10 +83,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			F7MvTB7XfsuHpBENN/M7Y2zXO3o=
-			</data>
 			<key>hash2</key>
 			<data>
 			eEumEfhgIg+GvWnOVvd3J3xG3anuAKsIwoWGcWxjN28=

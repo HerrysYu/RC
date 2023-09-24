@@ -10,8 +10,10 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'Voabulary.dart';
 import 'package:provider/provider.dart';
+import 'connect.dart';
 
 final sqlHelper = SqlHelper(db_path: Arguments.database_path.toString());
+SeverConnect severConnect = new SeverConnect();
 
 class WordInfo extends StatelessWidget {
   var radius = 10;
@@ -26,6 +28,7 @@ class WordInfo extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
         home: Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
           margin: EdgeInsets.only(top: 0, left: 0),
           width: 1080 * width,
@@ -111,8 +114,10 @@ class WordInfo extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             print("pressed");
+                            //SeverConnect().ConnetWs();
+                            Arguments.message = tec.text.toString();
                             channel.sink.add(Arguments.message); //SEND MESSAGE
-                            Arguments.CurrentWord = tec.text.toString();
+                            //Arguments.CurrentWord = tec.text.toString();
                           },
                           style: TextButton.styleFrom(
                               backgroundColor:
