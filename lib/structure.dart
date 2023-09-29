@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'argument.dart';
 import 'MessageSend.dart';
 
+final CurrentInfo = "";
 final tec = TextEditingController();
 void ChangeMessage() {
   Arguments.message = "a";
 }
+
+final InfoBlockController = TextEditingController();
 
 class MyTextField extends StatefulWidget {
   // This class is the configuration for the state.
@@ -43,25 +46,5 @@ class _MyTextFieldState extends State<MyTextField> {
           ),
         ),
         controller: tec);
-  }
-}
-
-class MyButton extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _MyButtonState();
-}
-
-class _MyButtonState extends State<MyButton> {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return MaterialButton(
-        onPressed: () {
-          print("pressed");
-          channel.sink.add(Arguments.message);
-        },
-        color: Colors.blue);
-
-    throw UnimplementedError();
   }
 }

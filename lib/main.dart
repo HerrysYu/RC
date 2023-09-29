@@ -116,7 +116,8 @@ class WordInfo extends StatelessWidget {
                             print("pressed");
                             //SeverConnect().ConnetWs();
                             Arguments.message = tec.text.toString();
-                            channel.sink.add(Arguments.message); //SEND MESSAGE
+                            severConnect.channel.sink
+                                .add(Arguments.message); //SEND MESSAGE
                             //Arguments.CurrentWord = tec.text.toString();
                           },
                           style: TextButton.styleFrom(
