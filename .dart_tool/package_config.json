@@ -32,6 +32,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "chat_bubbles",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/chat_bubbles-1.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "checked_yaml",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/checked_yaml-2.0.3",
       "packageUri": "lib/",
@@ -104,6 +110,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/intl-0.18.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "js",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/js-0.6.7",
       "packageUri": "lib/",
@@ -114,6 +126,12 @@
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/json_annotation-4.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "loading_animation_widget",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/loading_animation_widget-1.2.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
     },
     {
       "name": "matcher",
@@ -272,7 +290,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-09-26T14:33:26.467698Z",
+  "generated": "2023-11-20T11:50:55.307432Z",
   "generator": "pub",
-  "generatorVersion": "3.1.2"
+  "generatorVersion": "3.1.5"
 }

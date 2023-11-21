@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:fluter_practice/structure.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:path/path.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'argument.dart';
 import 'package:rxdart/rxdart.dart';
@@ -31,10 +32,12 @@ class SeverConnect {
         channel.sink.close();
         this.ConnetWs();
       },
-      onError: (error) {
-        channel.sink.close();
-        this.ConnetWs();
-      },
     );
   }
+}
+
+class SocketConnect {
+  String address;
+  WebSocketChannel channel = WebSocketChannel.connect(Uri.parse(""));
+  SocketConnect({required this.address});
 }
