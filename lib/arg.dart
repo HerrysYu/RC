@@ -7,3 +7,6 @@ List<String> CurrentVoc = [];
 bool isreversed = false;
 double width_rato = 0;
 double heigh_ratio = 0;
+bool isqreplied = true;
+int isBoxempty = 0;
+bool isChat = true;

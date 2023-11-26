@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:fluter_practice/arg.dart';
 import 'package:fluter_practice/structure.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart';
@@ -9,7 +10,7 @@ import 'argument.dart';
 import 'package:rxdart/rxdart.dart';
 import 'structure.dart';
 
-StreamController streamController = new StreamController();
+StreamController streamControllera = new StreamController();
 
 class SeverConnect {
   bool isDisconnected_bool = false;
@@ -18,7 +19,12 @@ class SeverConnect {
     Uri.parse(Arguments.SeverAddress),
   );
   SeverConnect() {
-    ConnetWs();
+    this.channel.stream.listen(
+      (dynamic message) {
+        isqreplied = true;
+        streamControllera.add(message);
+      },
+    );
   }
   ConnetWs() {
     this.channel = WebSocketChannel.connect(
@@ -26,7 +32,8 @@ class SeverConnect {
     );
     this.channel.stream.listen(
       (dynamic message) {
-        streamController.add(message);
+        isqreplied = true;
+        streamControllera.add(message);
       },
       onDone: () {
         channel.sink.close();
@@ -34,10 +41,4 @@ class SeverConnect {
       },
     );
   }
-}
-
-class SocketConnect {
-  String address;
-  WebSocketChannel channel = WebSocketChannel.connect(Uri.parse(""));
-  SocketConnect({required this.address});
 }

@@ -24,8 +24,6 @@ class Notifer extends ChangeNotifier {
   update() {}
 }
 
-SocketConnect socketConnect = new SocketConnect();
-
 class TestPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _TestPageState();
@@ -34,8 +32,27 @@ class TestPage extends StatefulWidget {
 ScrollController scrollController = new ScrollController();
 
 class _TestPageState extends State<TestPage> {
+  late final SocketConnect socketConnect;
+  @override
+  void initState() {
+    // TODO: implement initState
+    socketConnect = new SocketConnect();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    socketConnect.channel.sink.close();
+    isChat = false;
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (socketConnect.isSocketConnect == false) {
+      //socketConnect.ReConnect();
+    }
     //var state = context.watch<Notifer>();
     // TODO: implement build
     return Container(
@@ -70,6 +87,7 @@ class _TestPageState extends State<TestPage> {
                           ),
                           onPressed: () {
                             MessageList = [];
+                            socketConnect.channel.sink.close();
                             Navigator.of(context).pop();
                             Navigator.of(context).pop(); //关闭对话框
                           },
@@ -97,6 +115,7 @@ class _TestPageState extends State<TestPage> {
                         isntGPT: true));
                     socketConnect.channel.sink
                         .add("请使用这些单词" + CurrentVoc.toString() + "开始英语对话,谢谢");
+                    Arguments.iswaitingreply = true;
                     streamController.add("update");
                   } else {
                     showDialog(
@@ -293,6 +312,7 @@ class SocketConnect {
   WebSocketChannel channel =
       WebSocketChannel.connect(Uri.parse("ws://45.32.29.121:1234"));
   SocketConnect() {
+    isSocketConnect = true;
     this.channel.stream.listen((dynamic message) {
       MessageList.add(Messagee(messagee: message, isntGPT: false));
       Arguments.iswaitingreply = false;
@@ -301,6 +321,7 @@ class SocketConnect {
           duration: Duration(seconds: 1), curve: Curves.easeIn);
     }, onDone: () {
       isSocketConnect = false;
+      ReConnect();
     });
   }
   Send(String message) async {
@@ -311,10 +332,7 @@ class SocketConnect {
     channel.sink.close();
   }
 
-  ReConnect() async {
-    channel = WebSocketChannel.connect(Uri.parse("ws://45.32.29.121:1234"));
-    isSocketConnect = true;
-  }
+  ReConnect() async {}
 }
 
 class Messagee {

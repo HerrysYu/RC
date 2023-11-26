@@ -4,18 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/SqfliteCursor.h</key>
-		<data>
-		1VfHOrPgffaqn8JEKrOhk6rgPKE=
-		</data>
-		<key>Headers/SqfliteDatabase.h</key>
-		<data>
-		zsTTAloFlEcTIE9lsLs7YH3mft8=
-		</data>
-		<key>Headers/SqfliteImport.h</key>
-		<data>
-		5EnSTmDeeuQ5qy+JW9INmT6Prc0=
-		</data>
 		<key>Headers/SqfliteOperation.h</key>
 		<data>
 		1qs2VByExmwhuAfqFnVLlT9i6fc=
@@ -30,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		zS0sUdqwI8LMqns7wSUla5ejb9U=
+		JNpw+631mV536x1HxVs1oWM4hnE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -39,27 +27,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/SqfliteCursor.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			mG1Yvnp0qIvnF4VCIygh3mQKBibOVuxB1DyZsGoN4is=
-			</data>
-		</dict>
-		<key>Headers/SqfliteDatabase.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			3kOKoA86HUGYZZRrMFzp7zMUMD/dy6p48Hdq6/PHp4w=
-			</data>
-		</dict>
-		<key>Headers/SqfliteImport.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			YhqPybsZhbZmSiHSVkDiRhEMWbs+8kn1GXXHPaYDI3w=
-			</data>
-		</dict>
 		<key>Headers/SqfliteOperation.h</key>
 		<dict>
 			<key>hash2</key>

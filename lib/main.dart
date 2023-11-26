@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fluter_practice/arg.dart';
 import 'package:fluter_practice/data.dart';
 import 'package:fluter_practice/structure.dart';
@@ -13,13 +15,35 @@ import 'Voabulary.dart';
 import 'package:provider/provider.dart';
 import 'connect.dart';
 import 'chat.dart';
+import 'speech.dart';
 
 final sqlHelper = SqlHelper(db_path: Arguments.database_path.toString());
-SeverConnect severConnect = new SeverConnect();
 
-class WordInfo extends StatelessWidget {
+class WordInfo extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => WordInfoState();
+}
+
+class WordInfoState extends State<WordInfo> {
+  late final SeverConnect severConnect;
   var radius = 10;
   final Color color_background = Color.fromRGBO(231, 244, 254, 1);
+  @override
+  void initState() {
+    // TODO: implement initState
+    severConnect = new SeverConnect();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+
+    severConnect.channel.sink.close();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -121,6 +145,8 @@ class WordInfo extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {
                               print("pressed");
+                              isqreplied = false;
+                              streamControllera.add("");
                               //SeverConnect().ConnetWs();
                               Arguments.message = tec.text.toString();
                               severConnect.channel.sink
@@ -128,6 +154,7 @@ class WordInfo extends StatelessWidget {
                               //Arguments.CurrentWord = tec.text.toString();
                             },
                             onLongPress: () async {
+                              isChat = true;
                               Arguments.VocabularyList =
                                   await sqlHelper.ReadOut();
                               if (CurrentVoc.isEmpty == false) {
@@ -137,9 +164,7 @@ class WordInfo extends StatelessWidget {
                                 CurrentVoc.add(item.toString());
                               }
                               print(CurrentVoc);
-                              if (socketConnect.isSocketConnect == false) {
-                                socketConnect.ReConnect();
-                              }
+                              Arguments.iswaitingreply = false;
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
