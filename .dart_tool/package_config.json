@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "archive",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/archive-3.4.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/archive-3.4.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -57,7 +57,7 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/collection-1.17.2",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/collection-1.18.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -69,15 +69,15 @@
     },
     {
       "name": "crypto",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/crypto-3.0.2",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/crypto-3.0.3",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.19"
     },
     {
       "name": "cupertino_icons",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.5",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.6",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "fake_async",
@@ -89,7 +89,7 @@
       "name": "flutter",
       "rootUri": "file:///Users/yuhaoqiang/Documents/flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_launcher_icons",
@@ -101,11 +101,11 @@
       "name": "flutter_test",
       "rootUri": "file:///Users/yuhaoqiang/Documents/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_tts",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/flutter_tts-3.8.4",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/flutter_tts-3.8.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -113,11 +113,11 @@
       "name": "flutter_web_plugins",
       "rootUri": "file:///Users/yuhaoqiang/Documents/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "image",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image-4.1.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image-4.1.3",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -159,7 +159,7 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/meta-1.9.1",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/meta-1.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -177,9 +177,9 @@
     },
     {
       "name": "petitparser",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/petitparser-5.4.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/petitparser-6.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "pointycastle",
@@ -189,7 +189,7 @@
     },
     {
       "name": "provider",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/provider-6.0.5",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/provider-6.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -203,7 +203,7 @@
       "name": "sky_engine",
       "rootUri": "file:///Users/yuhaoqiang/Documents/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "source_span",
@@ -213,27 +213,27 @@
     },
     {
       "name": "sqflite",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/sqflite-2.0.3+1",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/sqflite-2.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "3.0"
     },
     {
       "name": "sqflite_common",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/sqflite_common-2.4.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/sqflite_common-2.5.0+2",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "3.0"
     },
     {
       "name": "stack_trace",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/stack_trace-1.11.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/stack_trace-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "stream_channel",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/stream_channel-2.1.1",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/stream_channel-2.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.19"
     },
     {
       "name": "string_scanner",
@@ -243,9 +243,9 @@
     },
     {
       "name": "synchronized",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/synchronized-3.0.0+3",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/synchronized-3.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.18"
     },
     {
       "name": "term_glyph",
@@ -255,9 +255,9 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/test_api-0.6.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/test_api-0.6.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "typed_data",
@@ -273,9 +273,9 @@
     },
     {
       "name": "web",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/web-0.1.4-beta",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/web-0.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "3.2"
     },
     {
       "name": "web_socket_channel",
@@ -285,9 +285,9 @@
     },
     {
       "name": "xml",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/xml-6.3.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/xml-6.4.2",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "yaml",
@@ -302,7 +302,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-11-25T13:13:20.813227Z",
+  "generated": "2023-11-28T12:43:42.809041Z",
   "generator": "pub",
-  "generatorVersion": "3.1.5"
+  "generatorVersion": "3.2.1"
 }
