@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ffi';
 import 'dart:io';
+import 'package:fluter_practice/structure.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ import 'package:provider/provider.dart';
 import 'arg.dart';
 import 'main.dart';
 import 'argument.dart';
+import 'grammerCheck.dart';
 
 class Slist extends StatefulWidget {
   @override
@@ -57,7 +59,9 @@ class SListState extends State<Slist> {
                     textAlign: TextAlign.left,
                   ),
                   onPressed: (() {
-                    //Search(key);
+                    textEditingControllera.text = key.messagee;
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => spage()));
                   }),
                   onLongPress: () {},
                 ),

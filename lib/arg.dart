@@ -10,3 +10,4 @@ double heigh_ratio = 0;
 bool isqreplied = true;
 int isBoxempty = 0;
 bool isChat = true;
+bool isreplieda = true;
