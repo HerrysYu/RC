@@ -19,26 +19,18 @@ class SeverConnect {
     Uri.parse(Arguments.SeverAddress),
   );
   SeverConnect() {
-    this.channel.stream.listen(
-      (dynamic message) {
-        isqreplied = true;
-        streamControllera.add(message);
-      },
-    );
+    ConnetWs();
   }
   ConnetWs() {
     this.channel = WebSocketChannel.connect(
       Uri.parse(Arguments.SeverAddress),
     );
-    this.channel.stream.listen(
-      (dynamic message) {
-        isqreplied = true;
-        streamControllera.add(message);
-      },
-      onDone: () {
-        channel.sink.close();
-        this.ConnetWs();
-      },
-    );
+    this.channel.stream.listen((dynamic message) {
+      isqreplied = true;
+      streamControllera.add(message);
+    }, onDone: () {
+      print("socket closed");
+      Arguments.socketDisconnected = true;
+    });
   }
 }

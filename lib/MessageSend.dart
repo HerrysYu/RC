@@ -40,36 +40,47 @@ class _MessageState extends State<Message> {
             ),
           );
         } else {
-          if (tec.text == "") {
-            print("empty");
-          } else {
-            isEmpty = 1;
-          }
-          return ListView(children: [
-            Opacity(
-              opacity: isEmpty,
-              child: Container(
-                child:
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(
-                    "发音:",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  ttp(speekContent: tec.text)
-                ]),
+          if (snapshot.data.toString() == "received") {
+            return Padding(
+              padding: const EdgeInsets.all(40),
+              child: Center(
+                child: LoadingAnimationWidget.discreteCircle(
+                    color: color_background, size: 60),
               ),
-            ),
-            Center(
-              child: Text(
-                snapshot.hasData ? '${snapshot.data}' : '',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
+            );
+          } else {
+            if (tec.text == "") {
+              print("empty");
+            } else {
+              isEmpty = 1;
+            }
+            return ListView(children: [
+              Opacity(
+                opacity: isEmpty,
+                child: Container(
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "发音:",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        ttp(speekContent: tec.text)
+                      ]),
                 ),
               ),
-            ),
-          ]);
+              Center(
+                child: Text(
+                  snapshot.hasData ? '${snapshot.data}' : '',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ]);
+          }
         }
       },
     );

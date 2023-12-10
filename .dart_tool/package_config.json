@@ -116,6 +116,108 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "google_ml_kit",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_ml_kit-0.16.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_barcode_scanning",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_barcode_scanning-0.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_commons",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_commons-0.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_digital_ink_recognition",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_digital_ink_recognition-0.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_entity_extraction",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_entity_extraction-0.11.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_face_detection",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_face_detection-0.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_face_mesh_detection",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_face_mesh_detection-0.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_image_labeling",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_image_labeling-0.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_language_id",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_language_id-0.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_object_detection",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_object_detection-0.11.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_pose_detection",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_pose_detection-0.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_selfie_segmentation",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_selfie_segmentation-0.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_smart_reply",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_smart_reply-0.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_text_recognition",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_text_recognition-0.11.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "google_mlkit_translation",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/google_mlkit_translation-0.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/http-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "image",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image-4.1.3",
       "packageUri": "lib/",
@@ -138,6 +240,12 @@
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/json_annotation-4.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "language_tool",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/language_tool-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
     },
     {
       "name": "loading_animation_widget",
@@ -302,7 +410,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-11-28T12:43:42.809041Z",
+  "generated": "2023-12-10T08:59:26.095367Z",
   "generator": "pub",
   "generatorVersion": "3.2.1"
 }

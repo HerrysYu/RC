@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:ffi';
+import 'dart:io';
+import 'package:fluter_practice/hintgenerate.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -12,13 +14,16 @@ import 'dart:async';
 
 import 'package:path/path.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
-
+import 'package:google_mlkit_language_id/google_mlkit_language_id.dart';
+import 'package:language_tool/language_tool.dart';
 import 'main.dart';
 
 import 'package:provider/provider.dart';
 import 'arg.dart';
 import 'main.dart';
 import 'argument.dart';
+
+StreamController streamController_hint = new StreamController();
 
 class Notifer extends ChangeNotifier {
   update() {}
@@ -32,11 +37,29 @@ class TestPage extends StatefulWidget {
 ScrollController scrollController = new ScrollController();
 
 class _TestPageState extends State<TestPage> {
+  Future<String> feedbackError(List<WritingMistake> result) async {
+    List<String> fullMistake = [];
+    String fullMistake_string = "";
+    for (final mistake in result) {
+      fullMistake.add('''
+        Issue: ${mistake.shortMessage}
+        IssueType: ${mistake.issueDescription}
+        replecement:${mistake.replacements}
+      ''');
+    }
+    for (var item in fullMistake) {
+      fullMistake_string = fullMistake_string + item.toString();
+    }
+    return fullMistake_string;
+  }
+
   late final SocketConnect socketConnect;
+  late final LanguageIdentifier languageIdentifier;
   @override
   void initState() {
     // TODO: implement initState
     socketConnect = new SocketConnect();
+    languageIdentifier = LanguageIdentifier(confidenceThreshold: 0.5);
     super.initState();
   }
 
@@ -44,6 +67,7 @@ class _TestPageState extends State<TestPage> {
   void dispose() {
     // TODO: implement dispose
     socketConnect.channel.sink.close();
+    languageIdentifier.close();
     isChat = false;
     super.dispose();
   }
@@ -101,7 +125,7 @@ class _TestPageState extends State<TestPage> {
           backgroundColor: Color.fromRGBO(252, 222, 95, 1),
           actions: [
             Padding(
-              padding: EdgeInsets.only(right: 18 * width_rato),
+              padding: EdgeInsets.only(right: 2),
               child: IconButton(
                 icon: Icon(
                   Icons.book_outlined,
@@ -110,6 +134,8 @@ class _TestPageState extends State<TestPage> {
                 onPressed: (() {
                   if (CurrentVoc.isEmpty == false) {
                     MessageList.add(Messagee(
+                        confidence: 0.0,
+                        languageTag: "",
                         messagee:
                             "请使用这些单词" + CurrentVoc.toString() + "开始英语对话,谢谢",
                         isntGPT: true));
@@ -130,7 +156,19 @@ class _TestPageState extends State<TestPage> {
                   }
                 }),
               ),
-            )
+            ),
+            Padding(
+                padding: EdgeInsets.only(right: 16 * width_rato),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.lightbulb_outline,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => book()));
+                  },
+                ))
           ],
           title: Container(
             alignment: Alignment.topLeft,
@@ -163,6 +201,8 @@ class _TestPageState extends State<TestPage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: LineGenerator(
+                                      confidence: messages.confidence,
+                                      languageTag: messages.languageTag,
                                       isUser: messages.isntGPT,
                                       content: messages.messagee),
                                 ),
@@ -183,6 +223,8 @@ class _TestPageState extends State<TestPage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: LineGenerator(
+                                      languageTag: messages.languageTag,
+                                      confidence: messages.confidence,
                                       isUser: messages.isntGPT,
                                       content: messages.messagee),
                                 ),
@@ -197,7 +239,18 @@ class _TestPageState extends State<TestPage> {
                     child: MessageBar(
                       sendButtonColor: Color.fromRGBO(225, 139, 0, 0.824),
                       onSend: (String a) async {
-                        MessageList.add(Messagee(messagee: a, isntGPT: true));
+                        final String response =
+                            await languageIdentifier.identifyLanguage(a);
+
+                        final List<IdentifiedLanguage> possibleLanguages =
+                            await languageIdentifier
+                                .identifyPossibleLanguages(a);
+                        MessageList.add(Messagee(
+                            messagee: a,
+                            isntGPT: true,
+                            languageTag: possibleLanguages[0].languageTag,
+                            confidence: possibleLanguages[0].confidence));
+
                         Arguments.iswaitingreply = true;
                         streamController.add("call");
                         scrollController.animateTo(0,
@@ -219,7 +272,13 @@ class _TestPageState extends State<TestPage> {
 class LineGenerator extends StatelessWidget {
   bool isUser;
   String? content;
-  LineGenerator({required this.isUser, required this.content});
+  double confidence;
+  String languageTag;
+  LineGenerator(
+      {required this.isUser,
+      required this.content,
+      required this.confidence,
+      required this.languageTag});
   @override
   Widget build(BuildContext context) {
     if (isUser == true) {
@@ -300,11 +359,6 @@ class waitForSever extends StatelessWidget {
   }
 }
 
-SendMessage(String message) async {
-  //socketConnect.Send(message);
-  MessageList.add(Messagee(messagee: message, isntGPT: true));
-}
-
 StreamController streamController = new StreamController.broadcast();
 
 class SocketConnect {
@@ -314,7 +368,8 @@ class SocketConnect {
   SocketConnect() {
     isSocketConnect = true;
     this.channel.stream.listen((dynamic message) {
-      MessageList.add(Messagee(messagee: message, isntGPT: false));
+      MessageList.add(Messagee(
+          messagee: message, isntGPT: false, confidence: 0, languageTag: ""));
       Arguments.iswaitingreply = false;
       streamController.add("call");
       scrollController.animateTo(0,
@@ -338,7 +393,30 @@ class SocketConnect {
 class Messagee {
   String messagee;
   bool isntGPT;
-  Messagee({required this.messagee, required this.isntGPT});
+  double confidence;
+  String languageTag;
+  Messagee(
+      {required this.messagee,
+      required this.isntGPT,
+      required this.confidence,
+      required this.languageTag});
 }
 
 List<Messagee> MessageList = [];
+
+class hintSocket {
+  late final WebSocketChannel webSocketChannel;
+  hintSocketinit() {
+    webSocketChannel = WebSocketChannel.connect(Uri.parse(""));
+    webSocketChannel.stream.listen((dynamic message) {
+      streamController_hint.add(message);
+    });
+  }
+
+  hintSocket() {
+    hintSocketinit();
+  }
+  send(String message) async {
+    webSocketChannel.sink.add(message);
+  }
+}

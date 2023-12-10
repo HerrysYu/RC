@@ -14,5 +14,6 @@ class Arguments {
   static bool isDatasetExits = false;
   static List VocabularyList = [];
   static bool iswaitingreply = false;
+  static bool socketDisconnected = false;
   //SeverConnect sc = new SeverConnect();
 }

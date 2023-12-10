@@ -24,15 +24,37 @@ class WordInfo extends StatefulWidget {
   State<StatefulWidget> createState() => WordInfoState();
 }
 
-class WordInfoState extends State<WordInfo> {
+class WordInfoState extends State<WordInfo> with WidgetsBindingObserver {
   late final SeverConnect severConnect;
   var radius = 10;
   final Color color_background = Color.fromRGBO(231, 244, 254, 1);
+  init() {
+    severConnect = new SeverConnect();
+  }
+
   @override
   void initState() {
     // TODO: implement initState
-    severConnect = new SeverConnect();
+    init();
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    if (state == AppLifecycleState.paused) {
+      print("now in the back");
+    }
+    if (state == AppLifecycleState.resumed) {
+      print("now in the front");
+      if (Arguments.socketDisconnected == true) {
+        severConnect.ConnetWs();
+        Arguments.socketDisconnected = false;
+      }
+      print("dc" + Arguments.socketDisconnected.toString());
+    }
+    super.didChangeAppLifecycleState(state);
   }
 
   @override
@@ -40,7 +62,7 @@ class WordInfoState extends State<WordInfo> {
     // TODO: implement dispose
 
     severConnect.channel.sink.close();
-
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
