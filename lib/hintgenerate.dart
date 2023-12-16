@@ -118,10 +118,18 @@ class Bar extends StatelessWidget {
       //centerTitle: true,
       backgroundColor: Color.fromRGBO(252, 222, 95, 1),
       flexibleSpace: FlexibleSpaceBar(
-          titlePadding: EdgeInsets.all(50),
-          title: Text(
-            "语句合集",
-            style: TextStyle(color: Colors.black),
+          centerTitle: true,
+          titlePadding: EdgeInsets.only(bottom: 50 * width_rato),
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                child: Text(
+                  "语句合集",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ],
           )),
       stretch: true,
       //onStretchTrigger: State.ListRefresh(),

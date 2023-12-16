@@ -101,16 +101,19 @@ class queryGrammer {
   }
   Connect(String address) {
     channel = WebSocketChannel.connect(Uri.parse(address));
-    this.channel.stream.listen((dynamic message) {
+    Stream sta = channel.stream;
+    sta.listen((dynamic message) {
       QueryStream.add(message);
       isreplieda = true;
+      grammerqdis = false;
     }, onDone: () {
+      grammerqdis = true;
       print("socket closed");
     });
   }
 }
 
-StreamController QueryStream = StreamController();
+StreamController QueryStream = StreamController.broadcast();
 
 class Messagea extends StatefulWidget {
   @override

@@ -11,23 +11,19 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:provider/provider.dart';
+import 'data.dart';
+import 'grammerCheck.dart';
 
-class VocabularyState extends ChangeNotifier {
-  List list = Arguments.VocabularyList;
-  ListRefresh() async {
-    list = await sqlHelper.ReadOut();
-    notifyListeners();
-  }
+class sl extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => sl_state();
 }
 
-final VocabularyState vocabularyState = VocabularyState();
-
-class VList extends StatelessWidget {
+class sl_state extends State<sl> {
   GlobalKey _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    var state = context.watch<VocabularyState>();
-    List list = state.list;
+    List list = SentenceList;
     return Column(
       key: _key,
       children: [
@@ -55,15 +51,15 @@ class VList extends StatelessWidget {
                   //Search(key);
                   print("$key tapped");
                   Navigator.pop(context);
-                  tec.text = key.toString();
+                  textEditingControllera.text = key.toString();
                 }),
-                onLongPress: () {
+                onLongPress: () async {
                   showDialog(
                       context: context,
                       builder: (context) {
                         return AlertDialog(
                           title: Text("提示"),
-                          content: Text("您要删除这个单词吗"),
+                          content: Text("您要删除这个句子吗?"),
                           actions: <Widget>[
                             TextButton(
                               child: Text(
@@ -82,10 +78,12 @@ class VList extends StatelessWidget {
                               ),
                               onPressed: () async {
                                 print("$key LongPressed");
-                                sqlHelper.RemoveWord(key.toString());
-                                state.ListRefresh(); //关闭对话框
-                                Arguments.VocabularyList =
-                                    await sqlHelper.ReadOut();
+                                sqlHelpera.RemoveWord(key.toString());
+                                SentenceList = await sqlHelpera.ReadOut();
+                                setState(() {
+                                  list = SentenceList;
+                                });
+                                SentenceList = await sqlHelpera.ReadOut();
                                 Navigator.of(context).pop();
                               },
                             ),
@@ -103,25 +101,22 @@ class VList extends StatelessWidget {
   }
 }
 
-class vocabulary extends StatelessWidget {
+class VoSc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalKey _key = GlobalKey();
     // TODO: implement build
-    return ChangeNotifierProvider(
-      create: (context) => VocabularyState(),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Center(
-          child: CustomScrollView(slivers: [
-            Bar(),
-            SliverToBoxAdapter(
-              child: Container(
-                child: VList(),
-              ),
-            )
-          ]),
-        ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: CustomScrollView(slivers: [
+          Bar(),
+          SliverToBoxAdapter(
+            child: Container(
+              child: sl(),
+            ),
+          )
+        ]),
       ),
     );
   }
@@ -135,7 +130,7 @@ class ScroolView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      slivers: [Bar(), VList()],
+      slivers: [Bar(), sl()],
     );
   }
 }
@@ -144,7 +139,6 @@ class Bar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalKey _key = GlobalKey();
-    var State = context.watch<VocabularyState>();
     return SliverAppBar(
       expandedHeight: 150,
       key: _key,
@@ -158,7 +152,7 @@ class Bar extends StatelessWidget {
             children: [
               Container(
                 child: Text(
-                  "单词本",
+                  "句子本",
                   style: TextStyle(color: Colors.black),
                 ),
               ),

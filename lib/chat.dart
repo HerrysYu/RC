@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:ffi';
 import 'dart:io';
+import 'package:fluter_practice/grammerCheck.dart';
 import 'package:fluter_practice/hintgenerate.dart';
+import 'package:fluter_practice/structure.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -124,6 +126,19 @@ class _TestPageState extends State<TestPage> {
           ),
           backgroundColor: Color.fromRGBO(252, 222, 95, 1),
           actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 2),
+              child: IconButton(
+                icon: Icon(
+                  Icons.search_rounded,
+                  color: Colors.black,
+                ),
+                onPressed: (() {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => spage()));
+                }),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.only(right: 2),
               child: IconButton(

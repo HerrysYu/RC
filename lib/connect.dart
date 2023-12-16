@@ -28,6 +28,7 @@ class SeverConnect {
     this.channel.stream.listen((dynamic message) {
       isqreplied = true;
       streamControllera.add(message);
+      Arguments.socketDisconnected = false;
     }, onDone: () {
       print("socket closed");
       Arguments.socketDisconnected = true;

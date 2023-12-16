@@ -50,8 +50,8 @@ class ttp_state extends State<ttp> {
       icon: Icon(Icons.voice_chat),
       onPressed: () async {
         await flutterTts.setVolume(1);
-        await flutterTts.setSpeechRate(0.2);
-        await flutterTts.setVoice({"name": "Karen", "locale": "en-UK"});
+        await flutterTts.setSpeechRate(0.5);
+        await flutterTts.setVoice({"name": "Karen", "locale": "en-US"});
         await flutterTts.speak(widget.speekContent);
         print("done");
       },

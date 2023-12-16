@@ -1,4 +1,7 @@
 import 'package:fluter_practice/arg.dart';
+import 'package:fluter_practice/argument.dart';
+import 'package:fluter_practice/data.dart';
+import 'package:fluter_practice/sentencesVc.dart';
 import 'package:fluter_practice/structure.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +12,16 @@ class spage extends StatefulWidget {
   State<StatefulWidget> createState() => spageState();
 }
 
+final SqlHelpera sqlHelpera =
+    new SqlHelpera(db_path: Arguments.sentences_database_path);
+
 class spageState extends State<spage> {
   late queryGrammer querygrammer;
+  late SqlHelpera sqlHelpera;
   @override
   void initState() {
+    sqlHelpera = new SqlHelpera(db_path: Arguments.sentences_database_path);
+
     // TODO: implement initState
     querygrammer = new queryGrammer();
     super.initState();
@@ -96,10 +105,18 @@ class spageState extends State<spage> {
                         decoration: new BoxDecoration(),
                         child: ElevatedButton(
                           onPressed: () async {
+                            sqlHelpera.SaveWord(textEditingControllera.text);
+
                             //sqlHelper
                             //.ClearDataBase(); //######################### delete the table for debug purpose
                           },
-                          onLongPress: () async {},
+                          onLongPress: () async {
+                            SentenceList = await sqlHelpera.ReadOut();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => VoSc()));
+                          },
                           style: TextButton.styleFrom(
                               shape: CircleBorder(),
                               backgroundColor:
@@ -117,6 +134,9 @@ class spageState extends State<spage> {
                         child: ElevatedButton(
                           onPressed: () {
                             isreplieda = false;
+                            if (grammerqdis == true) {
+                              querygrammer.Connect(querygrammer.address);
+                            }
                             querygrammer.channel.sink.add(
                                 "请帮我检查下面这句话有没有语法问题,如果有的话请给我修改意见,如果没有的话,请帮我替换成更好的表达方式,谢谢" +
                                     textEditingControllera.text);
@@ -136,14 +156,16 @@ class spageState extends State<spage> {
                       Container(
                         height: 90 * height,
                         child: ElevatedButton(
-                          onPressed: () async {},
+                          onPressed: () async {
+                            textEditingControllera.clear();
+                          },
                           onLongPress: (() async {
                             showDialog(
                                 context: context,
                                 builder: (context) {
                                   return AlertDialog(
                                     title: Text("提示"),
-                                    content: Text("您确定要清空整个单词本吗?"),
+                                    content: Text("您确定要清空整个句子本吗?"),
                                     actions: <Widget>[
                                       TextButton(
                                         child: Text(
@@ -162,6 +184,7 @@ class spageState extends State<spage> {
                                               fontWeight: FontWeight.bold),
                                         ),
                                         onPressed: () {
+                                          sqlHelpera.ClearDataBase();
                                           Navigator.of(context).pop(); //关闭对话框
                                         },
                                       ),

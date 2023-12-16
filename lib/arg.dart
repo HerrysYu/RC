@@ -11,3 +11,5 @@ bool isqreplied = true;
 int isBoxempty = 0;
 bool isChat = true;
 bool isreplieda = true;
+bool grammerqdis = false;
+List SentenceList = [];

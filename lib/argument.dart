@@ -11,6 +11,7 @@ class Arguments {
   //static String SeverAddress = "ws://192.168.1.21:8765";
   static String? CurrentWord;
   static String database_path = 'save.db';
+  static String sentences_database_path = 'sentence.db';
   static bool isDatasetExits = false;
   static List VocabularyList = [];
   static bool iswaitingreply = false;
