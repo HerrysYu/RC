@@ -68,6 +68,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "cross_file",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/cross_file-0.3.3+8",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "crypto",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/crypto-3.0.3",
       "packageUri": "lib/",
@@ -86,6 +92,30 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "file_selector_linux",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/file_selector_linux-0.9.2+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "file_selector_macos",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/file_selector_macos-0.9.3+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "file_selector_platform_interface",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/file_selector_platform_interface-2.6.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "file_selector_windows",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/file_selector_windows-0.9.3+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/yuhaoqiang/Documents/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -96,6 +126,12 @@
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/flutter_launcher_icons-0.13.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.19",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_test",
@@ -224,6 +260,54 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "image_picker",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "image_picker_android",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker_android-0.8.10",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "image_picker_for_web",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker_for_web-3.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "image_picker_ios",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker_ios-0.8.10+1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "image_picker_linux",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker_linux-0.2.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "image_picker_macos",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker_macos-0.2.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "image_picker_platform_interface",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker_platform_interface-2.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "image_picker_windows",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/image_picker_windows-0.2.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/intl-0.18.1",
       "packageUri": "lib/",
@@ -248,6 +332,24 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "leak_tracker",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/leak_tracker-10.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "leak_tracker_flutter_testing",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/leak_tracker_flutter_testing-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "leak_tracker_testing",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/leak_tracker_testing-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "loading_animation_widget",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/loading_animation_widget-1.2.0+4",
       "packageUri": "lib/",
@@ -255,21 +357,27 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/matcher-0.12.16",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/matcher-0.12.16+1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/material_color_utilities-0.5.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/material_color_utilities-0.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/meta-1.10.0",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/meta-1.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "mime",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/mime-1.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "nested",
@@ -278,14 +386,26 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "path",
-      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "name": "page_transition",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/page_transition-2.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "path",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/path-1.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "petitparser",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/petitparser-6.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "plugin_platform_interface",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.8",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -380,6 +500,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "vm_service",
+      "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/vm_service-13.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "web",
       "rootUri": "file:///Users/yuhaoqiang/.pub-cache/hosted/pub.dev/web-0.3.0",
       "packageUri": "lib/",
@@ -410,7 +536,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-12-15T11:14:55.253773Z",
+  "generated": "2024-04-29T12:37:13.464435Z",
   "generator": "pub",
-  "generatorVersion": "3.2.1"
+  "generatorVersion": "3.3.1"
 }

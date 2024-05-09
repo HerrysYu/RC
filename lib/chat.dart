@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ffi';
 import 'dart:io';
+import 'package:fluter_practice/Config.dart';
 import 'package:fluter_practice/grammerCheck.dart';
 import 'package:fluter_practice/hintgenerate.dart';
 import 'package:fluter_practice/structure.dart';
@@ -151,11 +152,11 @@ class _TestPageState extends State<TestPage> {
                     MessageList.add(Messagee(
                         confidence: 0.0,
                         languageTag: "",
-                        messagee:
-                            "请使用这些单词" + CurrentVoc.toString() + "开始英语对话,谢谢",
+                        messagee: "请使用我的单词本的内容出题,谢谢",
                         isntGPT: true));
-                    socketConnect.channel.sink
-                        .add("请使用这些单词" + CurrentVoc.toString() + "开始英语对话,谢谢");
+                    socketConnect.channel.sink.add("请使用这些单词" +
+                        CurrentVoc.toString() +
+                        "出一些选择题和填空题,把答案出示在回复的最后面,谢谢");
                     Arguments.iswaitingreply = true;
                     streamController.add("update");
                   } else {
@@ -378,8 +379,8 @@ StreamController streamController = new StreamController.broadcast();
 
 class SocketConnect {
   bool isSocketConnect = true;
-  WebSocketChannel channel =
-      WebSocketChannel.connect(Uri.parse("ws://45.32.29.121:1234"));
+  WebSocketChannel channel = WebSocketChannel.connect(
+      Uri.parse("ws:" + "//" + SeverAddress + ":" + ChatPort));
   SocketConnect() {
     isSocketConnect = true;
     this.channel.stream.listen((dynamic message) {

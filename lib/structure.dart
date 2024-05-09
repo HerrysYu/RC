@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
+import 'package:fluter_practice/Config.dart';
+
 import 'arg.dart';
 
 import 'package:flutter/material.dart';
@@ -93,8 +95,9 @@ class _MyTextFieldStatea extends State<MyTextFielda> {
 }
 
 class queryGrammer {
-  String address = "ws://45.32.29.121:2020";
-  var channel = WebSocketChannel.connect(Uri.parse("ws://45.32.29.121:2020"));
+  String address = "ws:" + "//" + SeverAddress + ":" + QueryPort;
+  var channel = WebSocketChannel.connect(
+      Uri.parse("ws:" + "//" + SeverAddress + ":" + QueryPort));
   queryGrammer() {
     channel.sink.close();
     Connect(address);

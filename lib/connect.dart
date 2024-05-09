@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:fluter_practice/Config.dart';
 import 'package:fluter_practice/arg.dart';
 import 'package:fluter_practice/structure.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,14 +17,14 @@ class SeverConnect {
   bool isDisconnected_bool = false;
   bool isError_bool = false;
   WebSocketChannel channel = WebSocketChannel.connect(
-    Uri.parse(Arguments.SeverAddress),
+    Uri.parse("ws:" + "//" + SeverAddress + ":" + QueryPort),
   );
   SeverConnect() {
     ConnetWs();
   }
   ConnetWs() {
     this.channel = WebSocketChannel.connect(
-      Uri.parse(Arguments.SeverAddress),
+      Uri.parse("ws:" + "//" + SeverAddress + ":" + QueryPort),
     );
     this.channel.stream.listen((dynamic message) {
       isqreplied = true;

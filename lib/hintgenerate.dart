@@ -49,7 +49,7 @@ class SListState extends State<Slist> {
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.only(left: 30, bottom: 20, top: 20),
-                      primary: Colors.white,
+                      //primary: Colors.white,
                       elevation: 0,
                       shadowColor: Colors.white,
                       side: BorderSide(color: Colors.white)),

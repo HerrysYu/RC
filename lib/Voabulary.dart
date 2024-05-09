@@ -2,6 +2,8 @@ import 'package:fluter_practice/arg.dart';
 import 'package:fluter_practice/data.dart';
 import 'package:fluter_practice/main.dart';
 import 'package:fluter_practice/structure.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/utils/utils.dart';
 import 'MessageSend.dart';
@@ -42,7 +44,7 @@ class VList extends StatelessWidget {
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
                     padding: EdgeInsets.only(left: 30, bottom: 20, top: 20),
-                    primary: Colors.white,
+                    //primary: Colors.white,
                     elevation: 0,
                     shadowColor: Colors.white,
                     side: BorderSide(color: Colors.white)),
